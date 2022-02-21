@@ -2,7 +2,6 @@ package com.student.management;
 
 import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.List;
 
 import static com.student.management.ClassRoomName.*;
@@ -11,31 +10,29 @@ public class ClassRoom {
 
     private static final int ONE = 1;
 
-    private final EnumMap<ClassRoomName, List<Student>> classCollection;
+    private final EnumMap<ClassRoomName, List<Student>> classRoomCollection;
 
     public ClassRoom() {
 
-        this.classCollection = new EnumMap<>(ClassRoomName.class);
+        this.classRoomCollection = new EnumMap<>(ClassRoomName.class);
 
-        this.classCollection.put(CLASS_ROOM_ONE, new ArrayList<>());
-        this.classCollection.put(CLASS_ROOM_TWO, new ArrayList<>());
-        this.classCollection.put(CLASS_ROOM_THREE, new ArrayList<>());
-        this.classCollection.put(CLASS_ROOM_FOUR, new ArrayList<>());
-        this.classCollection.put(CLASS_ROOM_FIVE, new ArrayList<>());
-        this.classCollection.put(CLASS_ROOM_SIX, new ArrayList<>());
-
+        this.classRoomCollection.put(CLASS_ROOM_ONE, new ArrayList<>(ONE));
+        this.classRoomCollection.put(CLASS_ROOM_TWO, new ArrayList<>(ONE));
+        this.classRoomCollection.put(CLASS_ROOM_THREE, new ArrayList<>(ONE));
+        this.classRoomCollection.put(CLASS_ROOM_FOUR, new ArrayList<>(ONE));
+        this.classRoomCollection.put(CLASS_ROOM_FIVE, new ArrayList<>(ONE));
+        this.classRoomCollection.put(CLASS_ROOM_SIX, new ArrayList<>(ONE));
 
     }
 
     public void assignStudentToClassRoom(Student student, ClassRoomName className) {
 
-        classCollection.get(className).add(student);
+        classRoomCollection.get(className).add(student);
     }
 
-    public void PrintClasses() {
+    public void printClassRoomsAndStudents() {
 
-        classCollection.forEach((key, value) -> System.out.println(key + " = " + value));
+        classRoomCollection.forEach((key, value) -> System.out.println(key + " = " + value));
     }
-
 
 }
